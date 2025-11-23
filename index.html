@@ -4,7 +4,7 @@
   <base target="_top">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MFG Dashboard V5</title>
+  <title>Halagel Production Dashboard</title> <!-- DIKEMASKINI: Tajuk Tab Browser -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -16,6 +16,9 @@
             indigo: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 900: '#312e81' },
             slate: { 850: '#151e2e', 900: '#0f172a' },
             emerald: { 50: '#ecfdf5', 600: '#059669' },
+            purple: { 400: '#c084fc', 600: '#9333ea' },
+            blue: { 50: '#eff6ff', 100: '#dbeafe', 600: '#2563eb' },
+            amber: { 50: '#fffbeb', 600: '#d97706' }
           }
         }
       }
@@ -92,13 +95,22 @@
     <!-- Sidebar -->
     <aside class="hidden md:flex flex-col w-64 bg-white dark:bg-slate-850 border-r border-gray-200 dark:border-slate-700 z-30 shadow-md">
       <div class="p-6 flex items-center gap-3 border-b border-gray-100 dark:border-slate-800">
-        <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
-          <i class="fas fa-industry text-lg"></i>
+        
+        <!-- START: BLOK LOGO MENGGUNAKAN IMG SRC -->
+        <div class="w-10 h-10 flex items-center justify-center">
+          <!-- GANTIKAN URL DI BAWAH DENGAN URL LOGO ANDA -->
+          <img src="data:image/png;base64,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" 
+               alt="Logo Syarikat" 
+               class="w-full h-full object-contain rounded-lg border border-indigo-200 dark:border-indigo-900">
         </div>
+        <!-- END: BLOK LOGO MENGGUNAKAN IMG SRC -->
+
+        <!-- NAMA SISTEM -->
         <div>
-          <h1 class="font-extrabold text-xl tracking-tight">MFG<span class="text-indigo-600">HUB</span></h1>
-          <p class="text-[10px] font-bold text-slate-400 uppercase">Production V5</p>
+          <h1 class="font-extrabold text-xl tracking-tight">HALA<span class="text-green-600">GEL</span></h1>
+          <p class="text-[10px] font-bold text-slate-400 uppercase">Sistem Pengurusan V1</p>
         </div>
+
       </div>
       
       <nav class="flex-1 px-4 space-y-1 mt-4">
@@ -472,9 +484,14 @@
     }
 
     function getMockData() {
+        // Mock data to simulate production records
         return [
             { id: 1, date: '2025-11-20', type: 'Plan', category: 'Healthcare', process: 'Mixing', product: 'Vitamin C', qty: 1000, manpower: 0, user: 'plan1', timestamp: '2025-11-20T08:00:00' },
             { id: 2, date: '2025-11-20', type: 'Actual', category: 'Healthcare', process: 'Mixing', product: 'Vitamin C', qty: 950, batch: 'B001', manpower: 5, user: 'op1', timestamp: '2025-11-20T17:00:00' },
+            { id: 3, date: '2025-11-21', type: 'Plan', category: 'Healthcare', process: 'Filling', product: 'Vitamin E', qty: 500, manpower: 0, user: 'plan1', timestamp: '2025-11-21T08:00:00' },
+            { id: 4, date: '2025-11-21', type: 'Actual', category: 'Healthcare', process: 'Filling', product: 'Vitamin E', qty: 450, batch: 'B002', manpower: 4, user: 'op2', timestamp: '2025-11-21T16:00:00' },
+            { id: 5, date: '2025-11-19', type: 'Plan', category: 'Toothpaste', process: 'Mixing', product: 'Toothpaste Mint', qty: 1200, manpower: 0, user: 'plan1', timestamp: '2025-11-19T08:00:00' },
+            { id: 6, date: '2025-11-19', type: 'Actual', category: 'Toothpaste', process: 'Mixing', product: 'Toothpaste Mint', qty: 1250, batch: 'TM-101', manpower: 7, user: 'op2', timestamp: '2025-11-19T16:00:00' },
         ];
     }
 
@@ -733,178 +750,387 @@
         const p = document.getElementById('tabPlan');
         const a = document.getElementById('tabActual');
         const f = document.getElementById('actualFields');
-        const m = document.getElementById('manpowerFieldContainer'); // Logic for Manpower
+        const m = document.getElementById('manpowerFieldContainer'); 
 
         if (type === 'Plan') { 
             // Activate Plan Tab
             p.classList.add('bg-indigo-50','text-indigo-700','border-b-2','border-indigo-600'); 
             p.classList.remove('text-gray-500'); 
-            a.classList.remove('bg-emerald-50','text-emerald-700','border-b-2','border-emerald-600'); 
+            a.classList.remove('bg-emerald-50','text-emerald-700','border-b-2','border-emerald-600');
             a.classList.add('text-gray-500'); 
-            
-            // Hide fields not needed for Plan
-            f.classList.add('hidden'); // Batch
-            m.classList.add('hidden'); // Manpower HIDDEN for Plan
+            f.classList.add('hidden');
+            m.classList.add('hidden');
         } else { 
             // Activate Actual Tab
             a.classList.add('bg-emerald-50','text-emerald-700','border-b-2','border-emerald-600'); 
             a.classList.remove('text-gray-500'); 
             p.classList.remove('bg-indigo-50','text-indigo-700','border-b-2','border-indigo-600'); 
             p.classList.add('text-gray-500'); 
-            
-            // Show fields needed for Actual
-            f.classList.remove('hidden'); // Batch
-            m.classList.remove('hidden'); // Manpower SHOWN for Actual
+            f.classList.remove('hidden');
+            m.classList.remove('hidden');
         }
     }
-    
+
     function submitData() {
-        const payload = {
-            date: document.getElementById('inputDate').value,
-            category: document.getElementById('inputCategory').value,
-            process: document.getElementById('inputProcess').value,
-            product: document.getElementById('inputProduct').value,
-            qty: document.getElementById('inputQty').value,
-            manpower: document.getElementById('inputManpower').value,
-            type: document.getElementById('inputType').value,
-            batch: document.getElementById('inputBatch').value,
-            user: currentUser ? currentUser.username : 'Unknown' // Send User
+        const type = document.getElementById('inputType').value;
+        const date = document.getElementById('inputDate').value;
+        const category = document.getElementById('inputCategory').value;
+        const process = document.getElementById('inputProcess').value;
+        const product = document.getElementById('inputProduct').value;
+        const qty = document.getElementById('inputQty').value;
+        
+        if (!date || !qty || !product) {
+            alert('Sila isi semua ruangan yang wajib (Tarikh, Produk, Kuantiti).'); 
+            return;
+        }
+
+        const data = {
+            date: date,
+            type: type,
+            category: category,
+            process: process,
+            product: product,
+            qty: Number(qty),
+            user: currentUser.username,
+            timestamp: new Date().toISOString()
         };
-        if(!payload.date || !payload.product || !payload.qty) { alert("Please fill required fields"); return; }
-        runGoogleScript('submitData', JSON.stringify(payload), (res) => { alert('Data Saved!'); closeInputModal(); fetchData(); });
+
+        if (type === 'Actual') {
+            data.batch = document.getElementById('inputBatch').value;
+            data.manpower = Number(document.getElementById('inputManpower').value);
+        } else {
+            data.batch = 'N/A';
+            data.manpower = 0;
+        }
+
+        runGoogleScript('submitData', JSON.stringify(data), (res) => {
+            if (res.success) {
+                alert(`Data ${type} berjaya dihantar.`);
+                closeInputModal();
+                fetchData();
+            } else {
+                alert('Gagal menghantar data: ' + res.error);
+            }
+        });
     }
 
     function openEditModalFromRow(date, process, product, planId, actualId, planQty, actualQty, batch) {
-        document.getElementById('editDateDisplay').value = date;
+        document.getElementById('editDateDisplay').value = date + ' / ' + process;
         document.getElementById('editProduct').value = product;
         document.getElementById('editPlanQty').value = planQty;
         document.getElementById('editActualQty').value = actualQty;
         document.getElementById('editBatch').value = batch;
-        document.getElementById('editPlanId').value = planId !== 'null' ? planId : '';
-        document.getElementById('editActualId').value = actualId !== 'null' ? actualId : '';
+
+        document.getElementById('editPlanId').value = planId;
+        document.getElementById('editActualId').value = actualId;
+
+        // Tunjukkan atau sembunyikan medan Plan/Actual berdasarkan ID yang ada
+        const planInput = document.getElementById('editPlanQty').parentNode;
+        const actualInput = document.getElementById('editActualQty').parentNode;
+        const batchInput = document.getElementById('editBatch').parentNode;
+
+        if (planId && planId !== 'null') {
+            planInput.classList.remove('hidden');
+        } else {
+            planInput.classList.add('hidden');
+        }
+        
+        if (actualId && actualId !== 'null') {
+            actualInput.classList.remove('hidden');
+            batchInput.classList.remove('hidden');
+        } else {
+            actualInput.classList.add('hidden');
+            batchInput.classList.add('hidden');
+        }
+        
         document.getElementById('editModal').classList.remove('hidden');
     }
+    
     function closeEditModal() { document.getElementById('editModal').classList.add('hidden'); }
+
     function saveEdit() {
         const planId = document.getElementById('editPlanId').value;
         const actualId = document.getElementById('editActualId').value;
-        const updates = [];
-        if (planId) updates.push({ id: planId, qty: document.getElementById('editPlanQty').value, type: 'Plan' });
-        if (actualId) updates.push({ id: actualId, qty: document.getElementById('editActualQty').value, batch: document.getElementById('editBatch').value, type: 'Actual' });
+        const newPlanQty = document.getElementById('editPlanQty').value;
+        const newActualQty = document.getElementById('editActualQty').value;
+        const newBatch = document.getElementById('editBatch').value;
         
-        let completed = 0;
-        if (updates.length === 0) { closeEditModal(); return; }
-        updates.forEach(upd => {
-            const payload = { id: upd.id, qty: upd.qty, batch: upd.batch };
-            runGoogleScript('updateData', JSON.stringify(payload), (res) => {
-                completed++;
-                if (completed === updates.length) { alert("Data Updated"); fetchData(); closeEditModal(); }
+        const updates = [];
+
+        // Update Plan
+        if (planId && planId !== 'null') {
+            updates.push({
+                id: planId,
+                type: 'Plan',
+                qty: Number(newPlanQty),
+                user: currentUser.username
             });
-        });
+        }
+        
+        // Update Actual
+        if (actualId && actualId !== 'null') {
+             updates.push({
+                id: actualId,
+                type: 'Actual',
+                qty: Number(newActualQty),
+                batch: newBatch,
+                user: currentUser.username
+            });
+        }
+
+        if (updates.length > 0) {
+            runGoogleScript('updateData', JSON.stringify(updates), (res) => {
+                if (res.success) {
+                    alert('Data berjaya dikemaskini.');
+                    closeEditModal();
+                    fetchData();
+                } else {
+                    alert('Gagal mengemaskini data: ' + res.error);
+                }
+            });
+        }
     }
 
-    // Off Day Logic
-    function openOffDayModal() { document.getElementById('offDayModal').classList.remove('hidden'); renderOffDayList(); }
+
+    // Authentication Logic
+    function openLoginModal() { document.getElementById('loginModal').classList.remove('hidden'); }
+    function closeLoginModal() { 
+        document.getElementById('loginModal').classList.add('hidden');
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+    }
+
+    function updateUIForUser() {
+        if (currentUser) {
+            document.getElementById('userProfileSection').innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-300">
+                        <i class="fas fa-user text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold">${currentUser.username}</p>
+                        <p class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold">${currentUser.role}</p>
+                    </div>
+                </div>
+                <button onclick="performLogout()" class="text-sm text-red-500 hover:text-red-700"><i class="fas fa-sign-out-alt"></i></button>
+            `;
+            document.getElementById('inputDataBtn').classList.remove('hidden');
+
+            const isManagerOrAdmin = currentUser.role === 'Manager' || currentUser.role === 'Admin';
+            document.getElementById('managerControls').classList.toggle('hidden', !isManagerOrAdmin);
+            document.getElementById('adminControls').classList.toggle('hidden', currentUser.role !== 'Admin');
+
+        } else {
+            document.getElementById('userProfileSection').innerHTML = `<button onclick="openLoginModal()" class="w-full px-3 py-2 bg-indigo-600 text-white text-sm font-bold rounded-lg hover:bg-indigo-700 transition shadow-lg shadow-indigo-500/30">Login System</button>`;
+            document.getElementById('inputDataBtn').classList.add('hidden');
+            document.getElementById('managerControls').classList.add('hidden');
+            document.getElementById('adminControls').classList.add('hidden');
+        }
+        renderDashboard(); // Re-render table to show/hide edit buttons
+    }
+
+    function performLogin() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (typeof google !== 'undefined' && google.script) {
+            google.script.run.withSuccessHandler(user => {
+                if (user && user.username) {
+                    currentUser = user;
+                    localStorage.setItem('mfg_user', JSON.stringify(currentUser));
+                    closeLoginModal();
+                    updateUIForUser();
+                    alert(`Selamat datang, ${currentUser.username} (${currentUser.role})!`);
+                } else {
+                    alert('Username atau password salah.');
+                }
+            }).authenticateUser(username, password);
+        } else {
+            // Local fallback login
+            const user = usersList.find(u => u.username === username && u.password === password);
+            if (user) {
+                currentUser = user;
+                localStorage.setItem('mfg_user', JSON.stringify(currentUser));
+                closeLoginModal();
+                updateUIForUser();
+                alert(`Selamat datang, ${currentUser.username} (${currentUser.role})!`);
+            } else {
+                alert('Username atau password salah.');
+            }
+        }
+    }
+
+    function performLogout() {
+        currentUser = null;
+        localStorage.removeItem('mfg_user');
+        updateUIForUser();
+        alert('Anda telah log keluar.');
+    }
+
+
+    // Off Day Management
+    function openOffDayModal() {
+        if (!currentUser || (currentUser.role !== 'Manager' && currentUser.role !== 'Admin')) return;
+        renderOffDayList();
+        document.getElementById('offDayModal').classList.remove('hidden');
+    }
+    
     function closeOffDayModal() { document.getElementById('offDayModal').classList.add('hidden'); }
-    function addOffDay() { const date = document.getElementById('offDayPicker').value; if(date && !offDaysList.includes(date)) { offDaysList.push(date); offDaysList.sort(); renderOffDayList(); } }
-    function removeOffDay(date) { offDaysList = offDaysList.filter(d => d !== date); renderOffDayList(); }
-    function renderOffDayList() {
-        document.getElementById('offDayList').innerHTML = offDaysList.map(d => `
-            <li class="flex justify-between items-center p-2 bg-white dark:bg-slate-800 border rounded"><span>${d}</span><button onclick="removeOffDay('${d}')" class="text-red-500"><i class="fas fa-trash"></i></button></li>
-        `).join('');
-    }
-    function saveOffDays() { runGoogleScript('saveOffDays', JSON.stringify(offDaysList), (res) => { alert('Off Days Set!'); closeOffDayModal(); fetchData(); }); }
 
-    // Admin: User Management Logic
-    function openUserModal() { document.getElementById('userModal').classList.remove('hidden'); renderUserList(); }
-    function closeUserModal() { document.getElementById('userModal').classList.add('hidden'); }
-    function renderUserList() {
-        const tbody = document.getElementById('userListBody');
-        tbody.innerHTML = '';
-        usersList.forEach(u => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `<td class="p-2">${u.username}</td><td class="p-2"><span class="px-2 py-1 rounded bg-gray-200 text-xs font-bold">${u.role}</span></td><td class="p-2 text-center"><button onclick="deleteUser('${u.username}')" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i></button></td>`;
-            tbody.appendChild(tr);
+    function renderOffDayList() {
+        const list = document.getElementById('offDayList');
+        list.innerHTML = '';
+        offDaysList.sort();
+        offDaysList.forEach((day, index) => {
+            const li = document.createElement('li');
+            li.className = 'flex justify-between items-center bg-white dark:bg-slate-700 p-2 rounded';
+            li.innerHTML = `
+                <span>${day}</span>
+                <button onclick="removeOffDay(${index})" class="text-red-500 hover:text-red-700"><i class="fas fa-trash-alt"></i></button>
+            `;
+            list.appendChild(li);
         });
     }
+
+    function addOffDay() {
+        const date = document.getElementById('offDayPicker').value;
+        if (date && !offDaysList.includes(date)) {
+            offDaysList.push(date);
+            renderOffDayList();
+        } else if (offDaysList.includes(date)) {
+            alert('Tarikh ini sudah ada dalam senarai cuti.');
+        }
+    }
+
+    function removeOffDay(index) {
+        offDaysList.splice(index, 1);
+        renderOffDayList();
+    }
+
+    function saveOffDays() {
+        runGoogleScript('saveOffDays', JSON.stringify(offDaysList), (res) => {
+            if (res.success) {
+                alert('Tarikh cuti telah disimpan.');
+                closeOffDayModal();
+                renderDashboard();
+            } else {
+                alert('Gagal menyimpan cuti: ' + res.error);
+            }
+        });
+    }
+
+    // User Management (Admin Only)
+    function openUserModal() {
+        if (!currentUser || currentUser.role !== 'Admin') return;
+        fetchUsers();
+    }
+
+    function closeUserModal() { document.getElementById('userModal').classList.add('hidden'); }
+
+    function fetchUsers() {
+        if (typeof google !== 'undefined' && google.script) {
+            google.script.run.withSuccessHandler(u => {
+                usersList = JSON.parse(u);
+                renderUserList();
+                document.getElementById('userModal').classList.remove('hidden');
+            }).getUsers();
+        } else {
+             // Local Fallback
+            renderUserList();
+            document.getElementById('userModal').classList.remove('hidden');
+        }
+    }
+
+    function renderUserList() {
+        const listBody = document.getElementById('userListBody');
+        listBody.innerHTML = '';
+        usersList.forEach(user => {
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-gray-50 dark:hover:bg-slate-700/50';
+            tr.innerHTML = `
+                <td class="p-2 font-medium">${user.username}</td>
+                <td class="p-2 text-indigo-600 font-semibold">${user.role}</td>
+                <td class="p-2 text-center">
+                    ${user.username !== currentUser.username ? `
+                        <button onclick="deleteUser('${user.username}')" class="text-red-500 hover:text-red-700 disabled:opacity-50" ${user.role === 'Admin' ? 'disabled' : ''}>
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    ` : '<span class="text-gray-400 text-xs">Current User</span>'}
+                </td>
+            `;
+            listBody.appendChild(tr);
+        });
+    }
+
     function addNewUser() {
-        const u = document.getElementById('newUsername').value;
-        const p = document.getElementById('newPassword').value;
-        const r = document.getElementById('newRole').value;
-        if(u && p) {
-            runGoogleScript('addUser', JSON.stringify({username: u, password: p, role: r}), (res) => {
-                alert('User added');
+        const username = document.getElementById('newUsername').value;
+        const password = document.getElementById('newPassword').value;
+        const role = document.getElementById('newRole').value;
+
+        if (!username || !password) {
+            alert('Username dan Password diperlukan.');
+            return;
+        }
+
+        const newUser = { username, password, role };
+
+        runGoogleScript('addUser', JSON.stringify(newUser), (res) => {
+            if (res.success) {
+                alert(`Pengguna ${username} (${role}) telah ditambah.`);
                 document.getElementById('newUsername').value = '';
                 document.getElementById('newPassword').value = '';
-                renderUserList();
-            });
-        } else alert("Fill all fields");
+                fetchUsers(); // Refresh list
+            } else {
+                alert('Gagal menambah pengguna: ' + res.error);
+            }
+        });
     }
+
     function deleteUser(username) {
-        if(confirm("Delete user " + username + "?")) {
-            runGoogleScript('deleteUser', JSON.stringify({username: username}), (res) => {
-                alert('User deleted');
-                renderUserList();
+        if (confirm(`Adakah anda pasti mahu memadam pengguna ${username}?`)) {
+            runGoogleScript('deleteUser', JSON.stringify({ username: username }), (res) => {
+                if (res.success) {
+                    alert(`Pengguna ${username} telah dipadam.`);
+                    fetchUsers(); // Refresh list
+                } else {
+                    alert('Gagal memadam pengguna: ' + res.error);
+                }
             });
         }
     }
 
-    // Login Logic
-    function openLoginModal() { document.getElementById('loginModal').classList.remove('hidden'); }
-    function closeLoginModal() { document.getElementById('loginModal').classList.add('hidden'); }
-    function performLogin() {
-        const u = document.getElementById('username').value.toLowerCase();
-        const p = document.getElementById('password').value;
-        
-        const found = usersList.find(user => user.username.toLowerCase() === u && user.password === p);
-        
-        if (found) {
-            currentUser = { username: found.username, role: found.role };
-            localStorage.setItem('mfg_user', JSON.stringify(currentUser));
-            closeLoginModal();
-            updateUIForUser();
-            alert(`Welcome ${found.role}`);
-        } else {
-            alert('Invalid login');
-        }
-    }
-    function logout() { currentUser = null; localStorage.removeItem('mfg_user'); updateUIForUser(); renderDashboard(); }
-    
-    function updateUIForUser() {
-        const profile = document.getElementById('userProfileSection');
-        const inputBtn = document.getElementById('inputDataBtn');
-        const managerControls = document.getElementById('managerControls');
-        const adminControls = document.getElementById('adminControls');
-        
-        if (currentUser) {
-            profile.innerHTML = `
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold">${currentUser.username[0].toUpperCase()}</div>
-                    <div class="flex-1">
-                        <p class="text-sm font-bold">${currentUser.username}</p>
-                        <p class="text-xs text-indigo-400">${currentUser.role}</p>
-                    </div>
-                    <button onclick="logout()" class="text-red-500 text-xs hover:underline">Logout</button>
-                </div>
-            `;
-            
-            inputBtn.classList.remove('hidden');
-            
-            // Permissions
-            if(currentUser.role === 'Manager' || currentUser.role === 'Admin') managerControls.classList.remove('hidden');
-            else managerControls.classList.add('hidden');
+    function alert(message) {
+        // Simple custom alert for a better user experience
+        const existingAlert = document.getElementById('customAlert');
+        if (existingAlert) existingAlert.remove();
 
-            if(currentUser.role === 'Admin') adminControls.classList.remove('hidden');
-            else adminControls.classList.add('hidden');
-            
-            renderDashboard(); 
-        } else {
-            profile.innerHTML = `<button onclick="openLoginModal()" class="w-full px-3 py-2 bg-indigo-600 text-white text-sm font-bold rounded-lg hover:bg-indigo-700 transition">Login System</button>`;
-            inputBtn.classList.add('hidden');
-            managerControls.classList.add('hidden');
-            adminControls.classList.add('hidden');
-        }
+        const alertDiv = document.createElement('div');
+        alertDiv.id = 'customAlert';
+        alertDiv.className = 'fixed top-4 right-4 bg-indigo-600 text-white p-4 rounded-xl shadow-xl z-[9999] transition-all duration-300 transform translate-x-full opacity-0';
+        alertDiv.innerHTML = `<div class="flex items-center gap-3"><i class="fas fa-info-circle"></i> <span>${message}</span></div>`;
+        document.body.appendChild(alertDiv);
+        
+        setTimeout(() => {
+            alertDiv.classList.remove('translate-x-full', 'opacity-0');
+            alertDiv.classList.add('translate-x-0', 'opacity-100');
+        }, 10);
+
+        setTimeout(() => {
+            alertDiv.classList.remove('translate-x-0', 'opacity-100');
+            alertDiv.classList.add('translate-x-full', 'opacity-0');
+        }, 3000);
+
+        setTimeout(() => {
+            alertDiv.remove();
+        }, 3500);
     }
+
+    function confirm(message) {
+        // Implement a custom confirm modal instead of window.confirm
+        return window.prompt(message + " (Taip 'YA' untuk teruskan)") === 'YA';
+    }
+
+
   </script>
 </body>
 </html>
